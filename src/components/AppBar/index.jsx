@@ -27,7 +27,7 @@ function AppBar() {
   return (
     <Box sx={{
       width: '100%',
-      height: (theme) => theme.trello.appBoardHeight,
+      height: (theme) => theme.trello.appBarHeight,
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'space-between',
@@ -49,9 +49,9 @@ function AppBar() {
           <Recent />
           <Starred />
           <Templates />
-          <Button 
-            sx={{ 
-              color: 'white',
+          <Button
+            sx={{
+              color: 'white'
             }}
             startIcon={<AddToPhotosIcon />}
           >
@@ -62,28 +62,28 @@ function AppBar() {
       </Box>
 
       <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-        <TextField 
-          id="outlined-search" 
-          label="Search.." 
-          type="text" 
-          size='small' 
+        <TextField
+          id="outlined-search"
+          label="Search.."
+          type="text"
+          size='small'
           value={searchValue}
           onChange={(e) => setSearchValue(e.target.value)}
           InputProps={{
             startAdornment: (
               <InputAdornment position="start">
-                <SearchIcon sx={{ color: 'white'}} />
+                <SearchIcon sx={{ color: 'white' }} />
               </InputAdornment>
             ),
             endAdornment: (
-              <CloseIcon 
+              <CloseIcon
                 fontSize='small'
-                sx={{ color: searchValue ? 'white' : 'transparent', cursor: 'pointer'}}
+                sx={{ color: searchValue ? 'white' : 'transparent', cursor: 'pointer' }}
                 onClick={() => setSearchValue('')}
               />
             )
           }}
-          sx={{ 
+          sx={{
             minWidth: '120px',
             maxWidth: '180px',
             '& label': { color: 'white' },
