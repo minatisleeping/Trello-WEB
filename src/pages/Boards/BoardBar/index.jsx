@@ -12,13 +12,13 @@ import Button from '@mui/material/Button'
 import PersonAddIcon from '@mui/icons-material/PersonAdd'
 
 const MENU_STYLES = {
-  color: 'primary.main',
-  bgcolor: 'white',
+  color: 'white',
+  bgcolor: 'transparent',
   border: 'none',
   paddingX: '5px',
   borderRadius: '4px',
-  '& .MuiSvgIcon-root': {
-    color: 'primary.main'
+  '.MuiSvgIcon-root': {
+    color: 'white'
   },
   '&:hover': {
     bgcolor: 'primary.50'
@@ -36,7 +36,8 @@ function BoardBar() {
       paddingX: 2,
       gap: 2,
       overflowX: 'auto',
-      borderTop: '1px solid #00bfa5'
+      bgcolor: (theme) => (theme.palette.mode === 'dark' ? '#34495e' : '#1976d2'),
+      borderBottom: '1px solid white'
     }}>
       <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
         <Chip
@@ -73,14 +74,26 @@ function BoardBar() {
       </Box>
 
       <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-        <Button variant="outlined" startIcon={<PersonAddIcon />}>Invite</Button>
+        <Button 
+          variant="outlined" 
+          startIcon={<PersonAddIcon />}
+          sx={{
+            color: 'white',
+            borderColor: 'white',
+            '&:hover': { borderColor: 'white' }
+          }}
+        >
+          Invite
+        </Button>
         <AvatarGroup
           max={7}
           sx={{
+            gap: '10px',
             '& .MuiAvatar-root': {
               width: 34,
               height: 34,
-              fontSize: 16
+              fontSize: 16,
+              border: 'none'
             }
           }}
         >
@@ -97,7 +110,7 @@ function BoardBar() {
           <Tooltip title='chanpunu'>
             <Avatar
               alt="Xp"
-              src="https://scontent.fhan4-3.fna.fbcdn.net/v/t39.30808-6/356118821_814306407060780_5693020902590376015_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=dd5e9f&_nc_ohc=FBHb08mZL38AX9MOM2W&_nc_ht=scontent.fhan4-3.fna&oh=00_AfCfvG860Awq7p7qVq_YngaBmDU-fytWDMUa85dug9TVtQ&oe=656CA238" />
+              src="https://scontent.fsgn2-6.fna.fbcdn.net/v/t39.30808-6/329158831_1246351552961003_3086407150157530397_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=dd5e9f&_nc_ohc=1MLJoo2WNlIAX_Aqebq&_nc_ht=scontent.fsgn2-6.fna&oh=00_AfCLuccUt7VJNxEmxI40KpWqzzXFW9kWVmNjR9HMtlGLmQ&oe=6571CB78" />
           </Tooltip>
           <Tooltip title='chanpunu'>
             <Avatar
@@ -107,7 +120,7 @@ function BoardBar() {
           <Tooltip title='chanpunu'>
             <Avatar
               alt="Xp"
-              src="https://scontent.fhan4-3.fna.fbcdn.net/v/t39.30808-6/329448909_1607733553002624_3210440294594294269_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=dd5e9f&_nc_ohc=qu7Q4cvsknQAX9mSO55&_nc_oc=AQl7ZX-3qUB2aejdaqmRRWATpNfgGbo_HsYE72WcQ0Y6WPQt909duY-YbgbLD4gGXsY&_nc_ht=scontent.fhan4-3.fna&oh=00_AfB5ZcAcevR5sOtVXfOyM-1x5UCUxOj9CBHGNqRg4lkj_Q&oe=656C60FF" />
+              src="https://farm66.staticflickr.com/65535/51787457781_d356acb798_o.jpg" />
           </Tooltip>
           <Tooltip title='chanpunu'>
             <Avatar
