@@ -1,16 +1,8 @@
-### Bộ code base để bắt đầu học khóa MERN Stack Pro (HỌC PHẦN FRONT-END: REACTJS - MATERIAL UI - REDUX...vv) - Lập Trình qua dự án thực tế Trello Clone trên YouTube của mình nhé các bạn!
-### Base project for my MERN Stack Pro Course - Build Trello App on YouTube!
+# Trello Website Clone(React - Material UI - Redux..vv)
 
-- Link Download Full Source Code hoàn chỉnh của bộ này và ủng hộ mình: (Sắp có...)
-
-- Link YouTube Playlist: https://www.youtube.com/playlist?list=PLP6tw4Zpj-RJP2-YrhtkWqObMQ-AA4TDy
-
-### Hướng dẫn clone Repo code này về máy các bạn chuẩn nhất ở đây nhé:
-
-- Link: https://youtu.be/lUfsTj45Uys
 
 ### Requirements - Thông tin của bộ Code Base này - Chuẩn các phiên bản dưới đây để bắt đầu học: (Semantic Versioning)
-
+#### Technology:
 ```
 * nodejs = v18.16.0
 * npm = v9.5.1
@@ -30,20 +22,19 @@
 * "eslint-plugin-react-refresh": "^0.3.4"
 ```
 
-### About Me - Thông tin về mình:
+<!-- ## Preview Screenshot
 
-Author: **Trungquandev - Một Lập Trình Viên** & **CodeTQ**
+<div  align="center">
 
-Blog: https://trungquandev.com/
+<img  src="https://github.com/khoahd7621/FlowerShop/blob/main/images/HomePage.png"  alt="Home Page"  width="45%"></img> &nbsp;&nbsp; <img  src="https://github.com/khoahd7621/FlowerShop/blob/main/images/LoginBar.png"  alt="Login Bar"  width="50%"></img>
 
-CV: https://cv.trungquandev.com/
+<img  src="https://github.com/khoahd7621/FlowerShop/blob/main/images/CartBar.png"  alt="Cart Bar"  width="45%"></img> &nbsp;&nbsp; <img  src="https://github.com/khoahd7621/FlowerShop/blob/main/images/SearchModel.png"  alt="Search Model"  width="50%"></img>
 
-YouTube 01 (Trungquandev - Một Lập Trình Viên): https://www.youtube.com/@trungquandev
+</div> -->
 
-YouTube 02 (CodeTQ): https://www.youtube.com/@code-tq
+## License & Copyright
 
-"Learning new everyday not the copycat of yesterday!"
+<!-- &copy; 2023 Mai Minh Nhat Minatisleeping Licensed under the [GPL-3.0 LICENSE](https://github.com/khoahd7621/FlowerShop/blob/main/LICENSE). -->
 
-"A bit of fragrance clings to the hand that gives flowers!"
+<!-- > :love_you_gesture: Feel free to use my repository and star it if you find something interesting :love_you_gesture: -->
 
-Thanks for watching!
