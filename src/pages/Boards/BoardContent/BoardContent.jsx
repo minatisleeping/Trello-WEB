@@ -12,9 +12,9 @@ import {
   DragOverlay,
   defaultDropAnimationSideEffects,
   closestCorners,
-  closestCenter,
+  // closestCenter,
   pointerWithin,
-  rectIntersection,
+  // rectIntersection,
   getFirstCollision
 } from '@dnd-kit/core'
 import { arrayMove } from '@dnd-kit/sortable'
@@ -288,7 +288,7 @@ function BoardContent({ board }) {
     sideEffects: defaultDropAnimationSideEffects({ styles: { active: { opacity: '0.5' } } })
   }
 
-  // Chung 1 ta sex custom lại chiến lược / thuật toán phát hiện va chạm tối ưu cho việc kéo thả Card giữa 
+  // Chúng ta sẽ custom lại chiến lược / thuật toán phát hiện va chạm tối ưu cho việc kéo thả Card giữa
   //nhiều columns
   // args = arguments: các đối số, tham số
   const collisionDetectionStrategy = useCallback((args) => {
@@ -297,24 +297,27 @@ function BoardContent({ board }) {
       return closestCorners({ ...args })
     }
 
-    // Tìm các điểm giao nau, va chạm - intersecitons với con trỏ
+    // Tìm các điểm giao nhau, va chạm, trả về 1 mảng các va chạm - intersections với con trỏ
     const pointerIntersections = pointerWithin(args)
 
-    // Thuật toán phát hiện va chạm sẽ trả về 1 mảng các va chạm ở đây
-    const intersections = !!pointerIntersections?.length
-      ? pointerIntersections
-      : rectIntersection(args)
+    // Fix triệt để cái bug flickering của thư viện Dnd-kit trong trường hợp sau:
+    // - Kéo 1 cái Card có image cover lớn và kéo lên phía trên cùng ra khỏi khu vực kéo thả
+    if (!pointerIntersections?.length) return
 
-    let overId = getFirstCollision(intersections, 'id')
+    // Thuật toán phát hiện va chạm sẽ trả về 1 mảng các va chạm ở đây (hong cần bước này nữa)
+    // const intersections = !!pointerIntersections?.length
+    //   ? pointerIntersections
+    //   : rectIntersection(args)
 
+    // Tìm overId dâu 92 tiên trong đám pointerItersections ở trên
+    let overId = getFirstCollision(pointerIntersections, 'id')
     if (overId) {
       // Nếu cái over nó là column thì sẽ tìm tới cái cardId gần nhất bên trong khu vực va chạm đó dựa vào
       //thuật toán phát hiện va chạm closestCenter or closestCorners đều được. Tuy nhiên ở đây dùng
       //closestCenter mình thấy smooth hơn
       const checkColumn = orderedColumns.find(column => column._id === overId)
       if (checkColumn) {
-
-        overId = closestCenter({
+        overId = closestCorners({
           ...args,
           droppableContainers: args.droppableContainers.filter(container => {
             return (container.id !== overId) && (checkColumn?.cardOrderIds?.includes(container.id))
@@ -334,8 +337,8 @@ function BoardContent({ board }) {
     <DndContext
       // Cảm biến
       sensors={sensors}
-      // Thuật toá phát hiện va chạm (nếu không có nó thì card với cover lớn sẽ không kéo qua Column được vì lúc
-      //này nó đang bbi5 conflict giữa card và column), chúng ta sẽ dùng closestCorners thay vì closestCenter
+      // Thuật toá phát hiện va chạm (nếu không có nó thì card với cover lớn sẽ không kéo qua Column được
+      //vì lúc này nó đang bị conflict giữa card và column), chúng ta sẽ dùng closestCorners thay vì closestCenter
       // Update info: nếu chỉ dũng closestCorners thì sẽ có bug flickering + sai lệch dữ liệu
       // collisionDetection={closestCorners}
 
