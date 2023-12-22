@@ -110,25 +110,25 @@ function BoardBar({ board }) {
               alt="Xp"
               src="https://scontent.fhan4-3.fna.fbcdn.net/v/t1.6435-9/122693594_146878467136914_7219505183091615041_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=7a1959&_nc_ohc=oeyXZshOiswAX9lqWDa&_nc_ht=scontent.fhan4-3.fna&oh=00_AfBChqyybAjtXPyfnLXj9NgPSKzpMMrQDrO5wJjtsUdkzA&oe=658F45C8" />
           </Tooltip>
-          <Tooltip title='chanpunu'>
+          <Tooltip title='person1'>
             <Avatar
               alt="Xp"
-              src="https://scontent.fsgn2-6.fna.fbcdn.net/v/t39.30808-6/329158831_1246351552961003_3086407150157530397_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=dd5e9f&_nc_ohc=1MLJoo2WNlIAX_Aqebq&_nc_ht=scontent.fsgn2-6.fna&oh=00_AfCLuccUt7VJNxEmxI40KpWqzzXFW9kWVmNjR9HMtlGLmQ&oe=6571CB78" />
+              src="https://img.freepik.com/free-psd/3d-illustration-person_23-2149436179.jpg?w=826&t=st=1703216278~exp=1703216878~hmac=ea2fde7042dd4bd65dae4c151155befe596a15d643ca8f9ae3d49c0dff03b36f" />
           </Tooltip>
-          <Tooltip title='chanpunu'>
+          <Tooltip title='person2'>
             <Avatar
               alt="Xp"
-              src="https://scontent.fhan3-4.fna.fbcdn.net/v/t39.30808-6/311879279_655456756279080_2881748940703634130_n.jpg?stp=cp6_dst-jpg&_nc_cat=104&ccb=1-7&_nc_sid=dd5e9f&_nc_ohc=ht78zRRYKoQAX8n1KPS&_nc_ht=scontent.fhan3-4.fna&oh=00_AfDmvHeWtpxAYG28oxHqn9_htnJQiDlfbVbq0zWEH9Goeg&oe=656D502E" />
+              src="https://img.freepik.com/free-psd/3d-illustration-human-avatar-profile_23-2150671116.jpg?w=826&t=st=1703216368~exp=1703216968~hmac=be48722c9eb616db624d9e3c5e1c1134992c87f4bf317cbfc4e1d05c5ad55c66" />
           </Tooltip>
           <Tooltip title='chanpunu'>
             <Avatar
               alt="Xp"
               src="https://farm66.staticflickr.com/65535/51787457781_d356acb798_o.jpg" />
           </Tooltip>
-          <Tooltip title='chanpunu'>
+          <Tooltip title='person3'>
             <Avatar
               alt="Xp"
-              src="https://scontent.fhan3-5.fna.fbcdn.net/v/t39.30808-6/275551940_513551340469623_4037602612271126958_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=dd5e9f&_nc_ohc=XfGDtUylqs0AX-qjjhI&_nc_ht=scontent.fhan3-5.fna&oh=00_AfB7ErR4zAPoM60fGHm8TdwaMIMI_ZExsWFzlQWFm-0dPQ&oe=656DB659" />
+              src="https://img.freepik.com/free-psd/3d-render-avatar-character_23-2150611737.jpg?w=826&t=st=1703216426~exp=1703217026~hmac=dced3c61d101b98bb310888975982b70fa677b97c511dc8761541493d82373d2" />
           </Tooltip>
           <Tooltip title='chanpunu'>
             <Avatar
