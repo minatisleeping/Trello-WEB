@@ -34,7 +34,7 @@ function Profiles() {
           <Avatar
             sx={{ width: 36, height: 36 }}
             alt='minatisleeping'
-            src='https://drive.google.com/uc?id=1Now0X3Y_2xfz68zv4-7pV12IF3ohpYLM'
+            src='https://img.freepik.com/free-photo/cute-girl-with-blond-hair-blue-eyes-3d-rendering_1142-51238.jpg?t=st=1706362028~exp=1706365628~hmac=34d175b607739d115c89e53d548770f131abd61ee54b156b98486a67fa6237b0&w=1380'
           />
         </IconButton>
       </Tooltip>
