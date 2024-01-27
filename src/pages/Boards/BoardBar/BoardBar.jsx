@@ -103,12 +103,12 @@ function BoardBar({ board }) {
           <Tooltip title='minatisleeping'>
             <Avatar
               alt="Minatisleeping"
-              src="https://drive.google.com/uc?id=1Now0X3Y_2xfz68zv4-7pV12IF3ohpYLM" />
+              src="https://img.freepik.com/free-photo/3d-illustration-cute-cartoon-boy-with-backpack-his-back_1142-40542.jpg?t=st=1706343237~exp=1706346837~hmac=32a3ed73c2cb02099cfb469266430beada20f21bb61f11ea6b0e8fe8d22c770d&w=1380" />
           </Tooltip>
           <Tooltip title='chanpunu'>
             <Avatar
               alt="Xp"
-              src="https://scontent.fhan4-3.fna.fbcdn.net/v/t1.6435-9/122693594_146878467136914_7219505183091615041_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=7a1959&_nc_ohc=oeyXZshOiswAX9lqWDa&_nc_ht=scontent.fhan4-3.fna&oh=00_AfBChqyybAjtXPyfnLXj9NgPSKzpMMrQDrO5wJjtsUdkzA&oe=658F45C8" />
+              src="https://img.freepik.com/free-photo/androgynous-avatar-non-binary-queer-person_23-2151100179.jpg?t=st=1706343266~exp=1706346866~hmac=82bb775f1ba3bd647d8503fb1c69b390ac2859b8476e347201ed1b93c8088929&w=826" />
           </Tooltip>
           <Tooltip title='person1'>
             <Avatar
@@ -138,7 +138,7 @@ function BoardBar({ board }) {
           <Tooltip title='chanpunu'>
             <Avatar
               alt="Xp"
-              src="https://scontent.fhan4-3.fna.fbcdn.net/v/t1.6435-9/122693594_146878467136914_7219505183091615041_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=7a1959&_nc_ohc=oeyXZshOiswAX9lqWDa&_nc_ht=scontent.fhan4-3.fna&oh=00_AfBChqyybAjtXPyfnLXj9NgPSKzpMMrQDrO5wJjtsUdkzA&oe=658F45C8" />
+              src="https://img.freepik.com/free-photo/3d-illustration-cute-cartoon-girl-blue-jacket-glasses_1142-41044.jpg?t=st=1706343322~exp=1706346922~hmac=de12ae303f8a2d229bf0becf1f2610b72232c09e62bd16177e73f4f4dddc3d96&w=1380" />
           </Tooltip>
           <Tooltip title='chanpunu'>
             <Avatar
