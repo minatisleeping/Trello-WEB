@@ -37,7 +37,9 @@ function Card({ card }) {
         cursor: 'pointer',
         boxShadow: '0 1px 1px rgba(0, 0, 0, 0.2)',
         overflow: 'unset',
-        display: card?.FE_PlaceholderCard ? 'none' : 'block'
+        display: card?.FE_PlaceholderCard ? 'none' : 'block',
+        border: '1px solid transparent',
+        '&:hover': { borderColor: (theme) => theme.palette.primary.main }
       }}
     >
       {card?.cover && <CardMedia sx={{ height: 140 }} image={card?.cover} /> }
@@ -45,7 +47,7 @@ function Card({ card }) {
         <Typography>{card?.title}</Typography>
       </CardContent>
       {shouldShowCardActions &&
-        <CardActions sx={{ p: '0 4px 8px 4px' }}>
+        <CardActions sx={{ p: '0 4px 2px 4px' }}>
           {!!card?.memberIds?.length &&
             <Button size="small" startIcon={<GroupIcon />}>{card?.memberIds?.length}</Button>
           }
