@@ -22,6 +22,7 @@ import { useSortable } from '@dnd-kit/sortable'
 import { CSS } from '@dnd-kit/utilities'
 import TextField from '@mui/material/TextField'
 import CloseIcon from '@mui/icons-material/Close'
+import { toast } from 'react-toastify'
 
 function Column({ column }) {
   const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({
@@ -54,7 +55,7 @@ function Column({ column }) {
 
   const addNewCard = () => {
     if (!newCardTitle) {
-      // console.log('Pls enter Card Title')
+      toast.error('Please enter Card Title', { position: 'bottom-right' })
       return
     }
     // console.log(newCardTitle)
