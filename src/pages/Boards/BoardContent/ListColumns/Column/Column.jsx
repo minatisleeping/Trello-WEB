@@ -189,7 +189,8 @@ function Column({ column, createNewCard }) {
                 size='small'
                 variant='outlined'
                 autoFocus
-                value={addNewCard}
+                data-no-dnd='true'
+                value={newCardTitle}
                 onChange={(e) => setNewCardTitle(e.target.value)}
                 sx={{
                   '& label': { color: 'text.primary' },
