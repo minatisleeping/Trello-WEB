@@ -24,7 +24,7 @@ import TextField from '@mui/material/TextField'
 import CloseIcon from '@mui/icons-material/Close'
 import { toast } from 'react-toastify'
 
-function Column({ column }) {
+function Column({ column, createNewCard }) {
   const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({
     id: column._id,
     data: { ...column }
@@ -53,13 +53,24 @@ function Column({ column }) {
 
   const [newCardTitle, setNewCardTitle] = useState('')
 
-  const addNewCard = () => {
+  const addNewCard = async () => {
     if (!newCardTitle) {
       toast.error('Please enter Card Title', { position: 'bottom-right' })
       return
     }
-    // console.log(newCardTitle)
-    // Gọi API ở đây
+
+    // Tạo data Card để gọi API
+    const newCardData = {
+      title: newCardTitle,
+      columnId: column._id
+    }
+
+    /**
+     * Gọi lên props func createNewColumn nằm ở component cha cao nhất (boards/_id.jsx)
+     * Và lúc này chúng ta có thể gọi luôn API ở đây là xong thay vì phải lần lượt gọi ngược lên những component cha phía bên trên
+     * Với việc sử dụng Redux như z thì code sẽ Clean chuẩn hơn rất nhiều
+     */
+    await createNewCard(newCardData)
 
     // Đóng trạng thái thêm Card mới & clear input
     toggleOpenNewCardForm()
