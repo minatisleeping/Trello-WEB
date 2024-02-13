@@ -8,19 +8,29 @@ import TextField from '@mui/material/TextField'
 import CloseIcon from '@mui/icons-material/Close'
 import { SortableContext, horizontalListSortingStrategy } from '@dnd-kit/sortable'
 
-function ListColumns({ columns }) {
+function ListColumns({ columns, createNewColumn, createNewCard }) {
   const [openNewColumnForm, setOpenNewColumnForm] = useState(false)
   const toggleOpenNewColumnForm = () => setOpenNewColumnForm(!openNewColumnForm)
 
   const [newColumnTitle, setNewColumnTitle] = useState('')
 
-  const addNewColumn = () => {
+  const addNewColumn = async () => {
     if (!newColumnTitle) {
-      toast.error('Pls enter Column Title')
+      toast.error('Please input Column title!')
       return
     }
-    // console.log(newColumnTitle)
-    // Gọi API ở đây
+
+    // Create data Column to call API
+    const newColumnData = {
+      title: newColumnTitle
+    }
+
+    /**
+     * Gọi lên props func createNewColumn nằm ở component cha cao nhất (boards/_id.jsx)
+     * Và lúc này chúng ta có thể gọi luôn API ở đây là xong thay vì phải lần lượt gọi ngược lên những component cha phía bên trên
+     * Với việc sử dụng Redux như z thì code sẽ Clean chuẩn hơn rất nhiều
+     */
+    await createNewColumn(newColumnData)
 
     // Đóng trạng thái thêm Column mới & clear input
     toggleOpenNewColumnForm()
@@ -38,7 +48,7 @@ function ListColumns({ columns }) {
         overflowY: 'hidden',
         '*::-webkit-scrollbar-track': { m: 2 }
       }}>
-        {columns?.map(column => <Column key={column._id} column={column} />)}
+        {columns?.map(column => <Column key={column._id} column={column} createNewCard={createNewCard} />)}
 
         {/* Box Add new  column CTA  */}
         {!openNewColumnForm
