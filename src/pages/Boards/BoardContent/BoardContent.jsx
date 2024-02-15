@@ -33,7 +33,7 @@ const ACTIVE_DRAG_ITEM_TYPE = {
 }
 
 
-function BoardContent({ board, createNewColumn, createNewCard }) {
+function BoardContent({ board, createNewColumn, createNewCard, moveColumns }) {
 
   // Nếu dùng PointerSensor mặc  định thì phải kết hợp thuộc tính CSS touch-action: none  ở những phần tử kéo thả
   //nhưng mà còn byg
@@ -277,12 +277,10 @@ function BoardContent({ board, createNewColumn, createNewCard }) {
         // Dùng arrayMove của thằng dnd-kit để sắp xếp lại mảng Columns ban đầu
         // Code của arrayMove ở đây: dnd-kit/packages/sortable/utilities/arrayMove.ts
         const dndOrderedColumns = arrayMove(orderedColumns, oldColumnIndex, newColumnIndex)
-        // 2 cái console.log() dữ liệu này sau dùng để xử lý gọi API
-        // const dndOrderedColumnsIds = dndOrderedColumns.map(c => c._id)
-        // console.log('dndorderedColumns: ', dndOrderedColumns)
-        // console.log('dndOrderedColumnsIds: ', dndOrderedColumnsIds)
 
-        // Cập nhật lại state columns ban đầu sau khi đã kéo thả
+        moveColumns(dndOrderedColumns)
+
+        // Vẫn gọi update State ở đây để tránh delay or Flickering giao diện lúc kéo thả cần phải chở gọi API (small trick)
         setOrderedColumns(dndOrderedColumns)
       }
     }
