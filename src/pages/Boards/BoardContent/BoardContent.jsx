@@ -33,7 +33,7 @@ const ACTIVE_DRAG_ITEM_TYPE = {
 }
 
 
-function BoardContent({ board, createNewColumn, createNewCard, moveColumns }) {
+function BoardContent({ board, createNewColumn, createNewCard, moveColumns, moveCardInTheSameColumn }) {
 
   // Nếu dùng PointerSensor mặc  định thì phải kết hợp thuộc tính CSS touch-action: none  ở những phần tử kéo thả
   //nhưng mà còn byg
@@ -244,7 +244,9 @@ function BoardContent({ board, createNewColumn, createNewCard, moveColumns }) {
         // Dùng arrayMove vì kéo card  trong một cái column thì tương tự với logic kéo column trong
         //một cái board content
         const dndOrderedCard = arrayMove(oldColumnWhenDraggingCard?.cards, oldCardIndex, newCardIndex)
+        const dndOrderedCardIds = dndOrderedCard.map(card => card._id)
 
+        // Vẫn gọi update State ở đây để tránh delay or Flickering giao diện lúc kéo thả cần phải chờ gọi API (small trick)
         setOrderedColumns(prevColumns => {
           // Clone mảng OrderedColumnState cũ ra một cái mới để xử lí data rồi return - cập nhât lại
           //OrderedColumnState mới
@@ -255,12 +257,16 @@ function BoardContent({ board, createNewColumn, createNewCard, moveColumns }) {
 
           // update lại 2 gái trị mới là card và cardOrderIDs trong cái targetColumn
           targetColumn.cards = dndOrderedCard
-          targetColumn.cardOrderIds = dndOrderedCard.map(card => card._id)
-
+          targetColumn.cardOrderIds = dndOrderedCardIds
 
           // Trả về vị trí state mới (chuẩn vị trí)
           return nextColumns
         })
+        /* Gọi lên props func moveCcardInTheSameColumn nằm ở component cha cao nhất (boards/_id.jsx)
+        * Và lúc này chúng ta có thể gọi luôn API ở đây là xong thay vì phải phải lần lượt gọi ngược lên 
+        những component cha phía bên trên
+        */
+        moveCardInTheSameColumn(dndOrderedCard, dndOrderedCardIds, oldColumnWhenDraggingCard._id)
       }
     }
 
@@ -278,10 +284,11 @@ function BoardContent({ board, createNewColumn, createNewCard, moveColumns }) {
         // Code của arrayMove ở đây: dnd-kit/packages/sortable/utilities/arrayMove.ts
         const dndOrderedColumns = arrayMove(orderedColumns, oldColumnIndex, newColumnIndex)
 
-        moveColumns(dndOrderedColumns)
-
         // Vẫn gọi update State ở đây để tránh delay or Flickering giao diện lúc kéo thả cần phải chở gọi API (small trick)
         setOrderedColumns(dndOrderedColumns)
+
+        moveColumns(dndOrderedColumns)
+
       }
     }
 
