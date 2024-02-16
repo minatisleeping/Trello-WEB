@@ -53,7 +53,7 @@ function Column({ column, createNewCard }) {
 
   const [newCardTitle, setNewCardTitle] = useState('')
 
-  const addNewCard = async () => {
+  const addNewCard = () => {
     if (!newCardTitle) {
       toast.error('Please enter Card Title', { position: 'bottom-right' })
       return
@@ -70,7 +70,7 @@ function Column({ column, createNewCard }) {
      * Và lúc này chúng ta có thể gọi luôn API ở đây là xong thay vì phải lần lượt gọi ngược lên những component cha phía bên trên
      * Với việc sử dụng Redux như z thì code sẽ Clean chuẩn hơn rất nhiều
      */
-    await createNewCard(newCardData)
+    createNewCard(newCardData)
 
     // Đóng trạng thái thêm Card mới & clear input
     toggleOpenNewCardForm()
