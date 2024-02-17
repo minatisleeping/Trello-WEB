@@ -1,6 +1,5 @@
 import Box from '@mui/material/Box'
 import ListColumns from './ListColumns/ListColumns'
-import { mapOrder } from '~/utils/sorts'
 
 import {
   DndContext,
@@ -62,7 +61,8 @@ function BoardContent({ board, createNewColumn, createNewCard, moveColumns, move
   const lastOverId = useRef(null)
 
   useEffect(() => {
-    setOrderedColumns(mapOrder(board?.columns, board?.columnOrderIds, '_id'))
+    // Columns đã được sắp xếp ở component cah cha cao nhất (boards/_id.jsx)
+    setOrderedColumns(board.columns)
   }, [board])
 
   // Tìm một cái Column theo CardId
@@ -263,7 +263,7 @@ function BoardContent({ board, createNewColumn, createNewCard, moveColumns, move
           return nextColumns
         })
         /* Gọi lên props func moveCcardInTheSameColumn nằm ở component cha cao nhất (boards/_id.jsx)
-        * Và lúc này chúng ta có thể gọi luôn API ở đây là xong thay vì phải phải lần lượt gọi ngược lên 
+        * Và lúc này chúng ta có thể gọi luôn API ở đây là xong thay vì phải phải lần lượt gọi ngược lên
         những component cha phía bên trên
         */
         moveCardInTheSameColumn(dndOrderedCard, dndOrderedCardIds, oldColumnWhenDraggingCard._id)
